@@ -1,0 +1,1 @@
+DATA_PATH = 'nfl_data/'
