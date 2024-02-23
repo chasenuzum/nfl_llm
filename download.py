@@ -17,6 +17,12 @@ def download_data(years : list):
     do so in yearly chunks as to not overrun the server
     and in list comprehension to avoid for loops
     and upload to a sqlite database
+
+    Args:
+        years (list): list of years to download
+
+    Returns:
+        None
     """
     # import total wins and upload to csv and sqlite
     wins = pd.concat([nfl.import_win_totals(years=[i]) for i in years])
