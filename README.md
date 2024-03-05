@@ -1,13 +1,14 @@
-# NFL Data Analysis Project
+# NFL Large Language Model (LLM) Project
 
 ## Overview
-This project aims to analyze NFL (National Football League) data from the year 2008 to today using Python and Llama-2. The project involves processing, analyzing, and visualizing various aspects of NFL data to derive insights and patterns for fantasy football.
+This project aims to analyze NFL (National Football League) data from the year 2008 to the present using Python and Llama-2. The project involves processing, analyzing, and visualizing various aspects of NFL data to derive insights and patterns for fantasy football.
 
 ## Features
 - **SQL Database:** SQL Lite database ready for use of NFL data.
 - **Data Analysis:** Performing exploratory data analysis (EDA) to understand trends, patterns, and relationships within the dataset.
 - **Chroma DB:** Creation of Chroma DB and embeddings for use in RAG.
 - **Visualization:** Creating informative visualizations such as plots, charts, and graphs to illustrate findings in a intuitive front end.
+- **RAG and SQL agent duo:** Utilize a comboination of RAG and SQL agents in Langchain to balance precision of data (SQL) and semantic understanding of unstructured data (RAG) in responses.
 - **LLM Interface in Streamlit:** Spin up streamlit QA chat bot to discuss roster formation.
 - **API Integration from Major Fantasy Providers:** ESPN and Sleeper Roster ingestion in front end interface.
 

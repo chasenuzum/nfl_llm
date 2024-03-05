@@ -4,9 +4,7 @@
 import pandas as pd
 from langchain_community.document_loaders import DataFrameLoader
 from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.embeddings.spacy_embeddings import SpacyEmbeddings
 from langchain_community.vectorstores import Chroma
-
 
 def embedding(model="llama2"):
     """
