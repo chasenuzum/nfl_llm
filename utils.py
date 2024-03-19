@@ -6,18 +6,19 @@ from langchain_community.document_loaders import DataFrameLoader
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 
-def embedding(model="llama2"):
+def embedding(model="llama2:7b"):
     """
     Load the embeddings
     """
     return OllamaEmbeddings(model=model)
     
 
-def load_split_df(df : pd.DataFrame, **kwargs):
+def load_split_df(df : pd.DataFrame):
     """
     Load dataframe and split into text
     """
-    docs = DataFrameLoader(df, **kwargs).load()
+    docs = DataFrameLoader(df)
+    docs.lazy_load()
     return docs
 
 def chroma_upload_docs(docs : list, embedding_function = embedding(), persist_directory="./chroma_db"):
