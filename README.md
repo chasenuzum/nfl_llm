@@ -35,6 +35,9 @@ This project aims to analyze NFL (National Football League) data from the year 2
 3. Wait until download, embeddings, finish
 4. Open local port listed in terminal
 
+## Example webpage
+![Alt text](nfl_screen.png)
+
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 1. Fork the repository.

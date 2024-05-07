@@ -6,27 +6,26 @@ from multiprocessing import Pool
 from tqdm import tqdm
 from utils import load_split_df, chroma_upload_docs
 from params import DATA_PATH
+from typing import AnyStr
 
 sub_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(sub_dir)
 
 # Function for error handling and processing/uploading documents
-def process_and_upload(chunk):
+def process_and_upload(chunk: pd.DataFrame or AnyStr, directory: AnyStr = DATA_PATH):
     """
-    Processes and uploads a DataFrame chunk to ChromaDB using lazy loading.
+    Use utils functions to process and upload the data to ChromaDB.
 
     Args:
-        chunk (pd.DataFrame): The DataFrame chunk to process and upload.
+        chunk (pd.DataFrame or String): The chunk of data to process and upload.
     """
-    # Define function to lazily load and split documents
-    def lazy_load_chunk(df_chunk):
-        for idx, row in df_chunk.iterrows():
-            # Create semantic id based on the row data
-            semantic_id = row["semantic_id"]
-            yield {"text": row["text_column"], "id": semantic_id}  # Replace with your column names
-
-    # Use lazy loading generator for documents
-    docs = lazy_load_chunk(chunk)
+    # Load and split the data
+    if isinstance(chunk, pd.DataFrame):
+        docs = load_split_df(chunk, data_type="dataframe")
+    elif isinstance(chunk, str):
+        docs = load_split_df(chunk, data_type="text")
+    else:
+        raise ValueError("Invalid data type. Must be a DataFrame or a String.")
 
     # Upload documents to ChromaDB
     chroma_upload_docs(docs, persist_directory=...)
